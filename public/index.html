@@ -5,12 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpage</title>
+    <title>Newsletter</title>
     <link rel="stylesheet" href="/public/style.css">
 </head>
 
 <body>
-    <h1>Welcome to the Page</h1>
+    <div class="container">
+        <h1>Newsletter</h1>
+        <form id="subscribeForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+
     <script src="/public/script.js"></script>
 </body>
 
