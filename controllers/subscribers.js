@@ -24,7 +24,9 @@ exports.createSubscribers = async (req, res, next) => {
 
         // Send a welcome newsletter
         const welcomeSubject = 'Welcome to Our Newsletter!';
-        const welcomeContent = '<p>Thank you for subscribing to our newsletter!</p>';
+        let welcomeContent = '<p>Thank you for subscribing to our newsletter!</p>';
+        // unsubscribe link
+        welcomeContent += `<p><a href="${process.env.CLIENT_URL}/unsubscribe?email=${email}">Unsubscribe</a></p>`;
         sendNewsletter(email, welcomeSubject, welcomeContent);
 
         res.send('Subscription successful! Check your email for a welcome newsletter.');
