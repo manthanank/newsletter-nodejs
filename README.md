@@ -22,6 +22,7 @@ EMAIL_PASSWORD="your_password"
 PORT = 3000
 MONGODB_USER = "username"
 MONGODB_PASSWORD = "password"
+CLIENT_URL = http://localhost:3000
 ```
 
 ## Usage
