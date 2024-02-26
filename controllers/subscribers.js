@@ -34,3 +34,31 @@ exports.createSubscribers = async (req, res, next) => {
         next(error);
     }
 };
+
+exports.deleteSubscribers = async (req, res, next) => {
+    // console.log(req.body);
+    const email = req.body.email;
+
+    try {
+        // Check if the email exists in the database
+        const existingSubscriber = await Subscribers.findOne({ email });
+
+        if (!existingSubscriber) {
+            // Email doesn't exist, send a message
+            return res.send('Email not found. No action taken.');
+        }
+
+        // Email exists, delete from the database
+        const deletedSubscriber = await Subscribers.deleteOne({ email });
+        // console.log('Subscription deleted from the database:', deletedSubscriber);
+
+        // For simplicity, let's just print it to the console
+        console.log(`Subscription deleted: ${email}`);
+
+        res.send('Unsubscription successful!');
+    } catch (error) {
+        // Handle database or other errors
+        console.error('Error deleting subscription:', error);
+        next(error);
+    }
+};
